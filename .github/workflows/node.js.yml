@@ -33,9 +33,24 @@ jobs:
     name: 'Deploy on Netlify'
     runs-on: ubuntu-latest
     steps:
-      - uses: jsmrcaga/action-netlify-deploy@v1.6.0
+      - uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+      
+      - name: Build
+        run: yarn build
+
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v1.1
         with:
+          publish-dir: './build'
+          production-branch: master
+          deploy-message: "Deploy from GitHub Actions"
+          enable-pull-request-comment: false
+          enable-commit-comment: true
+          overwrites-pull-request-comment: true
+        env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-          install_command: yarn --frozen-lockfile
-          build_command: yarn build
+        timeout-minutes: 1
