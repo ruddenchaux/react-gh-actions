@@ -28,3 +28,14 @@ jobs:
       
     - name: Test
       run: yarn test
+      
+  deploy:
+    name: 'Deploy on Netlify'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: jsmrcaga/action-netlify-deploy@v1.6.0
+        with:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          install_command: yarn --frozen-lockfile
+          build_command: yarn build
