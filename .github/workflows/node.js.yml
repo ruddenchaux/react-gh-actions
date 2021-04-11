@@ -21,7 +21,7 @@ jobs:
       - uses: c-hive/gha-yarn-cache@v1
 
       - name: Install dependencies
-        run: yarn --prefer-offline --frozen-lockfile
+        run: yarn --prefer-offline --frozen-lockfile --silent
 
       - name: Lint
         run: yarn lint
@@ -38,6 +38,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
+          install-command: yarn --prefer-offline --frozen-lockfile --silent
           build: yarn build
           start: yarn serve
           wait-on: http://localhost:3000
@@ -57,7 +58,7 @@ jobs:
       - uses: c-hive/gha-yarn-cache@v1
 
       - name: Install dependencies
-        run: yarn --prefer-offline --frozen-lockfile
+        run: yarn --prefer-offline --frozen-lockfile --silent
 
       - name: Build
         run: yarn build
@@ -92,7 +93,7 @@ jobs:
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 
       - name: Install dependencies
-        run: yarn --prefer-offline --frozen-lockfile
+        run: yarn --prefer-offline --frozen-lockfile --silent
 
       - name: Release
         run: yarn release
