@@ -43,4 +43,35 @@ Open the cypress test app.
 
 ### `yarn cy:run`
 
-Run the cypress tests.
+Run the cypress tests (invoked from ci/cd github actions).
+
+### `yarn lint`
+
+Run the eslint linter.
+
+### `yarn lint:fix`
+
+Fix the eslint error.
+
+### `yarn lint:ci`
+
+Run the eslint linter in quiet mode (invoked from ci/cd github actions).
+
+### `yarn format`
+
+Format the src files with prettier.
+
+### `yarn prepare-commit-msg-unix`
+
+Run the commitizen cli for unix os (invoked from hook `prepare-commit-msg`).
+
+### `yarn prepare-commit-msg-win`
+
+Run the commitizen for windows os (invoked from hook `prepare-commit-msg`).
+
+## Commit
+The project use git hooks for static code analysis and to standardize the commit message.
+
+`git commit`
+- run a eslint
+- open the interactive commitizen cli for create the commit message
