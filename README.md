@@ -4,10 +4,12 @@ This repo show an example of github actions for the react app but it can useful 
 
 ## Actions
 
-There are one workflow with 2 jobs
+There are one workflow with 4 jobs
 
+- lint: this job run the static code analysis with eslint
 - cypress: this job run the cypress tests and register the results on the [Cypress Dashboard](https://dashboard.cypress.io/projects/s5vyfx/runs). Learn more on official Cypress Github Actions [documentation](https://github.com/cypress-io/github-action).
 - deploy: this job, if cypress job successes, it make a deploy on Netlify https://friendly-edison-34e176.netlify.app. Learn more from [Github Actions used](https://github.com/nwtgck/actions-netlify).
+- release: this job run the release of new version (bump version, generate changelog, commit, tag, push and github release)
 
 ## Available Scripts
 
