@@ -5,7 +5,11 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ master, cypress ]
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
 
 jobs:
   cypress:
@@ -24,6 +28,7 @@ jobs:
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COMMIT_INFO_MESSAGE: ${{ github.event.pull_request.title }}
 
   deploy:
     needs: [cypress]
@@ -34,7 +39,7 @@ jobs:
 
       - name: Install dependencies
         run: yarn --frozen-lockfile
-      
+
       - name: Build
         run: yarn build
 
@@ -43,7 +48,7 @@ jobs:
         with:
           publish-dir: './build'
           production-branch: master
-          deploy-message: "Deploy from GitHub Actions"
+          deploy-message: 'Deploy from GitHub Actions'
           enable-pull-request-comment: false
           enable-commit-comment: true
           overwrites-pull-request-comment: true
