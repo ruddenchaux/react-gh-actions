@@ -1,3 +1,5 @@
+## [0.2.1](https://github.com/ruddenchaux/react-gh-actions/compare/0.2.0...0.2.1) (2021-04-11)
+
 # 0.2.0 (2021-04-11)
 
 
