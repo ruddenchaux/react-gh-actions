@@ -70,7 +70,8 @@ Run the commitizen cli for unix os (invoked from hook `prepare-commit-msg`).
 Run the commitizen for windows os (invoked from hook `prepare-commit-msg`).
 
 ## Commit
-The project use git hooks for static code analysis and to standardize the commit message.
+The project use git hooks for static code analysis and for standardize the commit message.
+The commit standard is https://github.com/conventional-changelog/commitlint/tree/master/@commitlint/config-conventional#type-enum.
 
 `git commit`
 - run a eslint
