@@ -21,8 +21,7 @@ jobs:
       - uses: c-hive/gha-yarn-cache@v1
 
       - name: Install dependencies
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
-        run: yarn --frozen-lockfile
+        run: yarn --prefer-offline --frozen-lockfile
 
       - name: Lint
         run: yarn lint
@@ -58,8 +57,7 @@ jobs:
       - uses: c-hive/gha-yarn-cache@v1
 
       - name: Install dependencies
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
-        run: yarn --frozen-lockfile
+        run: yarn --prefer-offline --frozen-lockfile
 
       - name: Build
         run: yarn build
@@ -94,8 +92,7 @@ jobs:
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 
       - name: Install dependencies
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
-        run: yarn --frozen-lockfile
+        run: yarn --prefer-offline --frozen-lockfile
 
       - name: Release
         run: yarn release
