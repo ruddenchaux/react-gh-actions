@@ -1,7 +1,4 @@
 module.exports = {
-  git: {
-    commitArgs: '--no-verify'
-  },
   github: {
     release: true
   },
