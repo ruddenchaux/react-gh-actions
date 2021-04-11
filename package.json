@@ -26,7 +26,7 @@
     "format": "prettier --write src/**/*.ts{,x}",
     "prepare-commit-msg-unix": "exec < /dev/tty && git cz --hook || true",
     "prepare-commit-msg-win": "prepare-commit-msg",
-    "release": "release-it -- --disable-metrics --ci",
+    "release": "release-it --disable-metrics --ci",
     "postinstall": "husky install"
   },
   "browserslist": {
